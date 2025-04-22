@@ -1,0 +1,11 @@
+<launch>
+    <!-- 启动 AI 功能包 -->
+    <node name="twist_sub_node" pkg="unitree_leddge_real" type="twist_sub"/>
+    <node name="ai_node" pkg="AI" type="testMyPackage.py" output="screen" />
+
+    <!-- 启动 go1_navigation 功能包 -->
+    <include file="$(find point_lio_unilidar)/launch/mapping_move_base.launch" />
+
+    <!-- 启动 Yolov5_ros 功能包 -->
+    <include file="$(find yolov5_ros)/launch/yolo_v5.launch" />
+</launch>
